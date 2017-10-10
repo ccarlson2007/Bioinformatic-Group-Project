@@ -1,1 +1,1 @@
-testing --Liz 
+library(seqinr)
