@@ -1,18 +1,16 @@
 setwd("~/Desktop/EECBData/BioinfoRData/")
+library(seqinr)
 
 dengue_basic <- read.fasta("DengueVirus1.fasta_pruned.mu.trim05")
 number_of_seqs <- length(dengue_basic)
 dengue_align <- read.alignment("denguesmall.txt", format = "fasta", forceToLower = T)
 dengue_consensus <- seqinr :: consensus(dengue_align, method = "majority")
 dengue_consensus_matrix <- seqinr :: consensus(dengue_align, method = "profile")
-#View(dengue_consensus_matrix)
 
 consensus_length <- length(dengue_consensus)
 number_column <- seq(1, consensus_length)
 
 Dengue_DF <- data.frame("num" = number_column, "WTnt" = dengue_consensus, "TSmutrate" = 0)
-
-#dengue_consensus_matrix[,10000]
 
 base_count <- ncol(dengue_consensus_matrix)
 
