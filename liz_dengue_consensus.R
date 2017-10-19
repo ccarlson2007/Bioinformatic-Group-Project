@@ -10,7 +10,7 @@ dengue_consensus_matrix <- seqinr :: consensus(dengue_align, method = "profile")
 consensus_length <- length(dengue_consensus)
 number_column <- seq(1, consensus_length)
 
-Dengue_DF <- data.frame("num" = number_column, "WTnt" = dengue_consensus, "TSmutrate" = 0)
+Dengue_DF <- data.frame("num" = number_column, "MeanFreq" = 0, "WTnt" = dengue_consensus)
 
 base_count <- ncol(dengue_consensus_matrix)
 
@@ -32,7 +32,7 @@ for(x in 1:base_count){
     ts_count <- current_matrix_base_count[["c"]]
   }
   
-  Dengue_DF[x, 3] <- ts_count/number_of_seqs
+  Dengue_DF[x, 2] <- ts_count/number_of_seqs
 }
 
 
