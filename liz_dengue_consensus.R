@@ -40,7 +40,7 @@ virus_dataframe <- function(fasta_file){
   return(Dengue_DF)
 }
 
-test_virus <- virus_dataframe("denguesmall.txt")
+test_virus <- virus_dataframe("DengueVirus1.fasta_pruned.mu.trim05")
 
 CpG_finder <- function(new_virus_data){
   virus_data <- new_virus_data
