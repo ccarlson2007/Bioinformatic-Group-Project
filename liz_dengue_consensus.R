@@ -1,5 +1,3 @@
-setwd("~/Desktop/EECBData/BioinfoRData/")
-
 #this function formats a FASTA file into a data frame to be used later
 virus_dataframe <- function(fasta_file){
   library(seqinr)
@@ -60,12 +58,12 @@ virus_dataframe <- function(fasta_file){
 }
 
 
-
+#test it out!
 test_virus <- virus_dataframe("DengueVirus1.fasta_pruned.mu.trim05")
 
 
 
-
+#then continue and use the returned file in the CpG finder
 
 CpG_finder <- function(new_virus_data){
   #reads data into function as CSV file
@@ -121,5 +119,5 @@ CpG_finder <- function(new_virus_data){
 }
 
 
-
+#and test out the result again!
 CpG_finder(test_virus)
