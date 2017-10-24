@@ -59,15 +59,15 @@ virus_dataframe <- function(fasta_file){
 
 
 #test it out!
-test_virus <- virus_dataframe("DengueVirus1.fasta_pruned.mu.trim05")
+test_virus <- virus_dataframe("denguesmall.txt")
 
-
+test_virus
 
 #then continue and use the returned file in the CpG finder
 
 CpG_finder <- function(new_virus_data){
-  #reads data into function as CSV file
-  virus_data <- read.csv(new_virus_data)
+  
+  virus_data <- new_virus_data
   
   #singles out column of nucleotides -- this assumes that the new datafile has the same column headers such as WTnt as the HIV file does
   WTnt <- virus_data$WTnt
