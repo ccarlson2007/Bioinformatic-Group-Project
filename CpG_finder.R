@@ -13,7 +13,7 @@ CpG_finder <- function(new_virus_data){
   
   #loop that determines if a CpG could occur due to mutation at each spot in the list of nucleotides (WTnt)
   #loops from row 1 to the the last row of the column WTnt
-  for(x in 1:data_length){
+  for(x in 1:data_length-1){
     
     #assigns a name (current_nuc) to the nucleotide at row x in WTnt and makes the nucleotide capitalized, in case the data uses lower case letters
     current_nuc <- toupper(WTnt[x])
