@@ -2,7 +2,7 @@ setwd("~/Desktop/EECB Classes Fall 2017/Bioinformatics Fall 2017/bioinfoRliz/")
 
 virus_dataframe <- function(fasta_file){
   library(seqinr)
-  
+
   dengue_basic <- read.fasta(fasta_file)
   number_of_seqs <- length(dengue_basic)
   
