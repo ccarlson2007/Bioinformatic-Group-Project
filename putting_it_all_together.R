@@ -51,7 +51,7 @@ CpG_finder <- function(new_virus_data){
   
   makesCpG <- vector(mode = "numeric", length = data_length)
   
-  for(x in 1:data_length){
+  for(x in 1:(data_length-1)){
     
     current_nuc <- toupper(WTnt[x])
     
