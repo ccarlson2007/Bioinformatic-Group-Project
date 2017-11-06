@@ -1,6 +1,9 @@
+#this function determines whether, at any given point in a nucleotide sequence, a transition mutation will create a CpG site
+
+#input is a dataframe with at least a column named wtnt
 CpG_finder <- function(virus_data){
-  #reads data into function from WTnt column
-  WTnt <- virus_data$WTnt
+  #reads data into function from wtnt column of the data frame
+  wtnt <- virus_data$wtnt
   
   #gets the length of the data file for use in a loop
   data_length <- nrow(virus_data)
@@ -8,15 +11,15 @@ CpG_finder <- function(virus_data){
   #creates a new column in virus_data called makesCpG
   virus_data$makesCpG <- 0
   
-  #loop that determines if a CpG could occur due to mutation at each spot in the list of nucleotides (WTnt)
-  #loops from row 1 to the the last row of the column WTnt
+  #loop that determines if a CpG could occur due to mutation at each spot in the list of nucleotides (wtnt)
+  #loops from row 1 to the second to last row of the column wtnt
   for(x in 1:(data_length-1)){
     
-    #assigns a name (current_nuc) to the nucleotide at row x in WTnt and makes the nucleotide capitalized, in case the data uses lower case letters
-    current_nuc <- toupper(WTnt[x])
+    #assigns a name (current_nuc) to the nucleotide at row x in wtnt and makes the nucleotide capitalized, in case the data uses lower case letters
+    current_nuc <- toupper(wtnt[x])
     
-    #assigns a name (current_neighbor) to the nucleotide in the next row down in WTnt and makes the nucleotide capitalized, in case the data uses lower case letters
-    current_neighbor <- toupper(WTnt[x + 1])
+    #assigns a name (current_neighbor) to the nucleotide in the next row down in wtnt and makes the nucleotide capitalized, in case the data uses lower case letters
+    current_neighbor <- toupper(wtnt[x + 1])
     
     #begins a loop that compares the two nucleotides that were just isolated
     #this if statement is only evaluated if the current nucleotide is a T
@@ -44,3 +47,5 @@ CpG_finder <- function(virus_data){
   #when the entire function is done, return the amended data file
   return(virus_data)
 }
+
+#created by Brittany, Corey, Derek, Liz, and Yuri
