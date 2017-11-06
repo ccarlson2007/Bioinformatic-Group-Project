@@ -14,7 +14,7 @@ virus_dataframe <- function(fasta_file){
   
   number_column <- seq(1, consensus_length)
   
-  Dengue_DF <- data.frame("num" = number_column, "MeanFreq" = 0, "WTnt" = dengue_consensus)
+  Dengue_DF <- data.frame("num" = number_column, "MeanFreq" = 0, "wtnt" = dengue_consensus)
   
   for(x in 1:consensus_length){
     current_base <- dengue_consensus[x]
@@ -45,7 +45,7 @@ CpG_finder <- function(new_virus_data){
   
   virus_data <- new_virus_data
   
-  WTnt <- virus_data$WTnt
+  wtnt <- virus_data$wtnt
   
   data_length <- nrow(virus_data)
   
@@ -53,9 +53,9 @@ CpG_finder <- function(new_virus_data){
   
   for(x in 1:(data_length-1)){
     
-    current_nuc <- toupper(WTnt[x])
+    current_nuc <- toupper(wtnt[x])
     
-    current_neighbor <- toupper(WTnt[x + 1])
+    current_neighbor <- toupper(wtnt[x + 1])
     
     if(current_nuc == "T"){
       if(current_neighbor == "G"){
@@ -80,7 +80,7 @@ CpG_finder <- function(new_virus_data){
 test_virus <- virus_dataframe("DengueVirus1.fasta_pruned.mu.trim05")
 test_virus <- CpG_finder(test_virus)
 
-my_consensus <- as.vector(test_virus$WTnt, mode = "character")
+my_consensus <- as.vector(test_virus$wtnt, mode = "character")
 
 MUTAA <- list()
 WTAA <- list()
